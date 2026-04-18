@@ -1,0 +1,261 @@
+// {
+// 	"version": "2.0.0",
+// 	"tasks": [
+// 		{
+// 			"type": "cppbuild",
+// 			"label": "C/C++: clang 활성 파일 빌드",
+// 			"command": "/usr/bin/clang",
+// 			"args": [
+// 				"-fcolor-diagnostics",
+// 				"-fansi-escape-codes",
+// 				"-g",
+// 				"${file}",
+// 				"-o",
+// 				"${fileDirname}/${fileBasenameNoExtension}"
+// 			],
+// 			"options": {
+// 				"cwd": "${fileDirname}"
+// 			},
+// 			"problemMatcher": [
+// 				"$gcc"
+// 			],
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			},
+// 			"detail": "컴파일러: /usr/bin/clang"
+// 		}
+// 	]
+// }
+
+// {
+// 	"version": "2.0.0",
+// 	"tasks": [
+// 		{
+// 			"type": "cppbuild",
+// 			"label": "C/C++: clang++ 활성 파일 빌드",
+// 			"command": "/usr/bin/clang++",
+// 			"args": [
+// 				"-std=c++17", 
+// 				"-Wall", //# ignore warnings
+// 				"-I${workspaceFolder}/dependencies/include", //# specify path to our include files with -I
+// 				"-L${workspaceFolder}/dependencies/library", //# specify the path to our library so with -L flag add path to our library
+// 				"${workspaceFolder}/*.cpp", //# execute all the cpp files so write *.cpp
+// 				"${workspaceFolder}/dependencies/library/libglfw.3.4.dylib",
+// 				"${workspaceFolder}/app", //# famework 추가
+// 				"-framework", 
+// 				"OpenGL",
+// 				"-framework",
+// 				"CoCoa",
+// 				"-framework",
+// 				"IOKit",
+// 				"-framework",
+// 				"CoreVideo",
+// 				"-framework",
+// 				"CoreFoundation", //# disable the warning about warning no the deprecated 
+// 				"-Wno-deprecated",
+// 			],
+// 			"options": {
+// 				"cwd": "${fileDirname}"
+// 			},
+// 			"problemMatcher": [
+// 				"$gcc"
+// 			],
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			},
+// 			"detail": "컴파일러: /usr/bin/clang++"
+// 		}
+// 	]
+// }
+
+// {
+// 	"version": "2.0.0",
+// 	"tasks": [
+// 		{
+// 			"type": "cppbuild",
+// 			"label": "C/C++: clang++ 활성 파일 빌드",
+// 			"command": "/usr/bin/clang++",
+// 			"args": [
+// 				"-std=c++17",
+// 				"-fdiagnostics-color=always",
+// 				"-Wall",
+// 				"-g",
+// 				"-I${workspaceFolder}/dependencies/include",
+// 				"-L${workspaceFolder}/dependencies/library",
+// 				"${workspaceFolder}/dependencies/library/libglfw.3.4.dylib",
+// 				"${workspaceFolder}/*.cpp",
+// 				"${workspaceFolder}/glad.c",
+// 				"-o",
+// 				"${workspaceFolder}/app",
+// 				"-framework",
+// 				"OpenGL",
+// 				"-framework",
+// 				"Cocoa",
+// 				"-framework",
+// 				"IOKit",
+// 				"-framework",
+// 				"CoreVideo",
+// 				"-framework",
+// 				"CoreFoundation",
+// 				"-Wno-deprecated-declarations"
+// 			],
+// 			"options": {
+// 				"cwd": "${fileDirname}"
+// 			},
+// 			"problemMatcher": [
+// 				"$gcc"
+// 			],
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			},
+// 			"detail": "컴파일러: /usr/bin/clang++"
+// 		}
+// 	]
+// }
+
+// {
+// 	"version": "2.0.0",
+// 	"tasks": [
+// 		{
+// 			"type": "shell",
+// 			"label": "OpenGL Build",
+// 			"command": "/usr/bin/clang++",
+// 			"args": [
+// 				"-std=c++17",
+// 				"-fdiagnostics-color=always",
+// 				"-Wall",
+// 				"-g",
+// 				"${workspaceFolder}/main.cpp",
+// 				"${workspaceFolder}/glad.c",
+// 				"-I${workspaceFolder}/dependencies/include",
+// 				"${workspaceFolder}/dependencies/library/libglfw.3.4.dylib",
+// 				"-o",
+// 				"${workspaceFolder}/app",
+// 				"-framework",
+// 				"OpenGL",
+// 				"-framework",
+// 				"Cocoa",
+// 				"-framework",
+// 				"IOKit",
+// 				"-framework",
+// 				"CoreVideo",
+// 				"-framework",
+// 				"CoreFoundation",
+// 				"-Wno-deprecated-declarations",
+// 				"&& echo '빌드 완료!!'"
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceFolder}"
+// 			},
+// 			"problemMatcher": [
+// 				"$gcc"
+// 			],
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			}
+// 		}
+// 	]
+// }
+
+// {
+// 	"version": "2.0.0",
+// 	"tasks": [
+// 		{
+// 			"type": "shell",
+// 			"label": "OpenGL Build",
+// 			"command": "/bin/zsh",
+// 			"args": [
+// 				"-c",
+// 				"/usr/bin/clang++ -std=c++17 -fdiagnostics-color=always -Wall -g ${workspaceFolder}/main.cpp ${workspaceFolder}/glad.c -I${workspaceFolder}/dependencies/include ${workspaceFolder}/dependencies/library/libglfw.3.4.dylib -o ${workspaceFolder}/app -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo -framework CoreFoundation -Wno-deprecated-declarations && echo '✅ 빌드 완료!!'"
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceFolder}"
+// 			},
+// 			"problemMatcher": [
+// 				"$gcc"
+// 			],
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			}
+// 		}
+// 	]
+// }
+
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "OpenGL Build Active File",
+			"command": "/bin/zsh",
+			"args": [
+				"-c",
+				"/usr/bin/clang++ -std=c++17 -fdiagnostics-color=always -Wall -g \"${file}\" \"${workspaceFolder}/glad.c\" -I\"${workspaceFolder}/dependencies/include\" \"${workspaceFolder}/dependencies/library/libglfw.3.4.dylib\" -o \"${fileDirname}/${fileBasenameNoExtension}\" -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo -framework CoreFoundation -Wno-deprecated-declarations && echo '✅ 빌드 완료!!'"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
+
+// {
+// 	"version": "2.0.0",
+// 	"tasks": [
+// 		{
+// 			"label": "Build Active File (Mac)",
+// 			"type": "shell",
+// 			"command": "/bin/zsh",
+// 			"args": [
+// 				"-c",
+// 				"/usr/bin/clang++ -std=c++17 -fdiagnostics-color=always -Wall -g \"${file}\" \"${workspaceFolder}/glad.c\" -I\"${workspaceFolder}/dependencies/include\" \"${workspaceFolder}/dependencies/library/libglfw.3.4.dylib\" -o \"${fileDirname}/${fileBasenameNoExtension}\" -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo -framework CoreFoundation -Wno-deprecated-declarations && echo \"✅ Mac 빌드 완료!!\""
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceFolder}"
+// 			},
+// 			"problemMatcher": ["$gcc"],
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			}
+// 		},
+// 		{
+// 			"label": "Build Active File (Windows EXE)",
+// 			"type": "shell",
+// 			"command": "/bin/zsh",
+// 			"args": [
+// 				"-c",
+// 				"x86_64-w64-mingw32-g++ -std=c++17 -Wall -g \"${file}\" -I\"${workspaceFolder}/dependencies/include\" -o \"${fileDirname}/${fileBasenameNoExtension}.exe\" && echo \"✅ Windows exe 빌드 완료!!\""
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceFolder}"
+// 			},
+// 			"problemMatcher": ["$gcc"]
+// 		},
+// 		{
+// 			"label": "Build Active File (Mac + Windows)",
+// 			"type": "shell",
+// 			"command": "/bin/zsh",
+// 			"args": [
+// 				"-c",
+// 				"/usr/bin/clang++ -std=c++17 -fdiagnostics-color=always -Wall -g \"${file}\" \"${workspaceFolder}/glad.c\" -I\"${workspaceFolder}/dependencies/include\" \"${workspaceFolder}/dependencies/library/libglfw.3.4.dylib\" -o \"${fileDirname}/${fileBasenameNoExtension}\" -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo -framework CoreFoundation -Wno-deprecated-declarations && x86_64-w64-mingw32-g++ -std=c++17 -Wall -g \"${file}\" -I\"${workspaceFolder}/dependencies/include\" -o \"${fileDirname}/${fileBasenameNoExtension}.exe\" && echo \"✅ Mac + Windows 둘 다 빌드 완료!!\""
+// 			],
+// 			"options": {
+// 				"cwd": "${workspaceFolder}"
+// 			},
+// 			"problemMatcher": ["$gcc"]
+// 		}
+// 	]
+// }
